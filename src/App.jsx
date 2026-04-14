@@ -1,16 +1,39 @@
-import './App.css'
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/about';
+import Charts from './pages/Charts';
+import Library from './pages/Library';
+import './App.css';
 
 function App() {
+  const location = useLocation(); 
+
   return (
     <div className="music-app-container">
-      {/* Header / Thanh điều hướng */}
       <header className="header">
         <h1 className="logo">MelodyStream</h1>
         <nav className="nav-menu">
           <ul>
-            <li><a href="#home" className="active">Khám phá</a></li>
-            <li><a href="#charts">Bảng xếp hạng</a></li>
-            <li><a href="#library">Thư viện của tôi</a></li>
+            <li>
+              <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
+                Trang chủ
+              </Link>
+            </li>
+            <li>
+              <Link to="/charts" className={location.pathname === '/charts' ? 'active' : ''}>
+                Bảng xếp hạng
+              </Link>
+            </li>
+            <li>
+              <Link to="/library" className={location.pathname === '/library' ? 'active' : ''}>
+                Thư viện
+              </Link>
+            </li>
+            <li>
+              <Link to="/about-us" className={location.pathname === '/about-us' ? 'active' : ''}>
+                Giới thiệu
+              </Link>
+            </li>
           </ul>
         </nav>
         <div className="search-bar">
@@ -18,45 +41,15 @@ function App() {
         </div>
       </header>
 
-      {/* Nội dung chính */}
       <main className="main-content">
-        <section className="hero-banner">
-          <div className="hero-text">
-            <h2>Hòa mình vào âm nhạc</h2>
-            <p>Thưởng thức hàng triệu bài hát mới nhất với chất lượng cao.</p>
-            <button className="play-btn">Nghe Ngay</button>
-          </div>
-        </section>
-
-        {/* Danh sách Playlist */}
-        <section className="playlist-section">
-          <h3>Playlist Nổi Bật</h3>
-          <div className="card-grid">
-            <div className="music-card">
-              <div className="cover placeholder">Cover 1</div>
-              <h4>K-Pop Dance</h4>
-              <p>aespa, Hearts2Hearts, ...</p>
-            </div>
-            <div className="music-card">
-              <div className="cover placeholder">Cover 2</div>
-              <h4>J-Pop Idols</h4>
-              <p>Hinatazaka46, ...</p>
-            </div>
-            <div className="music-card">
-              <div className="cover placeholder">Cover 3</div>
-              <h4>Top Hits Việt Nam</h4>
-              <p>Những bản hit đình đám nhất</p>
-            </div>
-            <div className="music-card">
-              <div className="cover placeholder">Cover 4</div>
-              <h4>Acoustic Thư Giãn</h4>
-              <p>Nhẹ nhàng và sâu lắng</p>
-            </div>
-          </div>
-        </section>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/charts" element={<Charts />} />
+          <Route path="/library" element={<Library />} />
+          <Route path="/about-us" element={<About />} />
+        </Routes>
       </main>
 
-      {/* Thanh phát nhạc (Music Player) ở đáy màn hình */}
       <footer className="music-player">
         <div className="now-playing">
           <div className="mini-cover placeholder-mini"></div>
@@ -80,4 +73,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
