@@ -1,15 +1,45 @@
-import React from 'react';
+const chartItems = [
+  {
+    title: 'Supernova',
+    artist: 'aespa',
+    note: 'No. 1',
+  },
+  {
+    title: 'Armageddon',
+    artist: 'aespa',
+    note: 'No. 2',
+  },
+  {
+    title: 'Hay Trao Cho Anh',
+    artist: 'Son Tung M-TP',
+    note: 'Viet top',
+  },
+];
 
 function Charts() {
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>Bảng Xếp Hạng Xu Hướng</h2>
-      <div style={{ marginTop: '20px' }}>
-        <p>1. Supernova - aespa</p>
-        <p>2. Armageddon - aespa</p>
-        <p>3. Đừng làm trái tim anh đau - Sơn Tùng M-TP</p>
+    <section className="simple-page charts-page">
+      <div className="section-heading">
+        <div>
+          <p className="section-tag">Bang xep hang</p>
+          <h2>Trending charts</h2>
+        </div>
+        <span className="muted-text">Cap nhat moi tuan</span>
       </div>
-    </div>
+
+      <div className="charts-list">
+        {chartItems.map((track, index) => (
+          <article key={track.title} className="chart-row">
+            <span className="chart-rank">{String(index + 1).padStart(2, '0')}</span>
+            <div className="chart-meta">
+              <h4>{track.title}</h4>
+              <p>{track.artist}</p>
+            </div>
+            <span className="chart-tag">{track.note}</span>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }
 

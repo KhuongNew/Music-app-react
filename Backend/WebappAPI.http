@@ -1,0 +1,35 @@
+@WebappAPI_HostAddress = http://localhost:5190
+
+GET {{WebappAPI_HostAddress}}/api/songs
+Accept: application/json
+
+###
+
+GET {{WebappAPI_HostAddress}}/api/songs/1
+Accept: application/json
+
+###
+
+POST {{WebappAPI_HostAddress}}/api/songs
+Content-Type: application/json
+
+{
+  "title": "Drama",
+  "artist": "aespa",
+  "duration": "3:34"
+}
+
+###
+
+PUT {{WebappAPI_HostAddress}}/api/songs/1
+Content-Type: application/json
+
+{
+  "title": "Supernova (Live)",
+  "artist": "aespa",
+  "duration": "3:20"
+}
+
+###
+
+DELETE {{WebappAPI_HostAddress}}/api/songs/1

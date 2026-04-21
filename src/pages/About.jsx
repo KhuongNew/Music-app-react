@@ -1,22 +1,40 @@
-import React from 'react';
-
 function About() {
   return (
-    <div style={{ color: '#ffffff', padding: '20px 0' }}>
-      <h2>Giới thiệu về MelodyStream</h2>
-      <p style={{ color: '#b3b3b3', marginTop: '15px', lineHeight: '1.6' }}>
-        MelodyStream là nền tảng nghe nhạc trực tuyến được xây dựng bằng ReactJS. <br />
-        Dự án này là bài tập thực hành môn Lập trình Web, giúp làm quen với việc chia component, 
-        thiết kế giao diện bằng CSS và chuyển trang không cần tải lại (SPA) thông qua React Router.
+    <section className="simple-page about-page">
+      <div className="section-heading">
+        <div>
+          <p className="section-tag">Thong tin</p>
+          <h2>Ve MelodyStream</h2>
+        </div>
+      </div>
+
+      <p className="about-note">
+        MelodyStream la mot music web app nho duoc dung de thu nghiem giao dien nghe nhac, quan
+        ly danh sach bai hat va ket noi API theo cach gan voi trai nghiem that hon. Thu vien cho
+        phep them, sua, xoa bai hat tren mot backend ASP.NET Core va luu bang SQLite.
       </p>
-      
-      <h3 style={{ marginTop: '30px', marginBottom: '10px' }}>Công nghệ sử dụng:</h3>
-      <ul style={{ color: '#b3b3b3', marginLeft: '20px', lineHeight: '1.8' }}>
-        <li>ReactJS (Vite)</li>
-        <li>React Router DOM</li>
-        <li>CSS3</li>
-      </ul>
-    </div>
+
+      <div className="about-grid">
+        <article className="about-card">
+          <h3>Muc tieu</h3>
+          <ul className="about-list">
+            <li>Thu nghiem giao dien nghe nhac</li>
+            <li>Quan ly danh sach bai hat</li>
+            <li>Ket noi API ASP.NET Core + SQLite</li>
+          </ul>
+        </article>
+
+        <article className="about-card">
+          <h3>Cong nghe su dung</h3>
+          <ul className="about-list">
+            <li>React + Vite cho giao dien</li>
+            <li>Axios cho request client</li>
+            <li>ASP.NET Core Web API cho backend</li>
+            <li>Entity Framework Core + SQLite cho du lieu</li>
+          </ul>
+        </article>
+      </div>
+    </section>
   );
 }
 
